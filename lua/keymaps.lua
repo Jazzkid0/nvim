@@ -27,6 +27,10 @@ vim.keymap.set('n', '<C-Right>', '<C-w><C-l>', { desc = 'Move focus to the right
 vim.keymap.set('n', '<C-Down>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-Up>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- Navigate wrapped text with alt
+vim.keymap.set('n', '<M-j>', 'gj')
+vim.keymap.set('n', '<M-k>', 'gk')
+
 -- Move multiple highlighted lines with capitals
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
