@@ -9,4 +9,6 @@ return {
   require 'custom/plugins/undotree',
 
   require 'custom/plugins/statusline',
+
+  require 'custom/plugins/noice',
 }
