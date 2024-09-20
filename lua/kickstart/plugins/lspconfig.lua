@@ -142,6 +142,7 @@ return {
 
       require('mason-lspconfig').setup {
         handlers = {
+          require('lspconfig').gleam.setup({}), -- no idea why but gleam doesn't work the normal way
           function(server_name)
             local server = servers[server_name] or {}
             -- This handles overriding only values explicitly passed
