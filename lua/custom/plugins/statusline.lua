@@ -8,8 +8,8 @@ return {
       options = {
         icons_enabled = false,
         theme = 'auto',
-        component_separators = { left = '', right = '' },
-        section_separators = { left = '', right = '' },
+        component_separators = { left = '', right = '' },
+        section_separators = { left = '', right = '' },
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -27,9 +27,9 @@ return {
         lualine_a = { 'mode' },
         lualine_b = { 'branch', 'diff' },
         lualine_c = { 'diagnostics' },
-        lualine_x = { 'copilot', 'filename' },
-        lualine_y = { 'searchcount' },
-        lualine_z = {},
+        lualine_x = { 'filename' },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' },
       },
       inactive_sections = {
         lualine_a = {},
