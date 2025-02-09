@@ -111,7 +111,6 @@ return {
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-       rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 
         lua_ls = {
@@ -143,6 +142,8 @@ return {
       require('mason-lspconfig').setup {
         handlers = {
           require('lspconfig').gleam.setup({}), -- no idea why but gleam doesn't work the normal way
+          require('lspconfig').marksman.setup({}),
+          require('lspconfig').rust_analyzer.setup({}),
           function(server_name)
             local server = servers[server_name] or {}
             -- This handles overriding only values explicitly passed
