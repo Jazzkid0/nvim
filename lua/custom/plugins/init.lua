@@ -12,5 +12,5 @@ return {
 
   require 'custom/plugins/noice',
 
-  require 'custom/plugins/rustacean',
+  -- require 'custom/plugins/rustacean',
 }
