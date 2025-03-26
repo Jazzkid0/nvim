@@ -14,6 +14,7 @@ return {
         { '<leader>r', group = '[R]ename' },
         { '<leader>p', group = '[P]earch' },
         { '<leader>w', group = '[W]orkspace' },
+        { '<leader>l', group = '[L]SP' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       }

@@ -70,6 +70,13 @@ return {
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
 
+          -- LSP control binds
+          map('<leader>lr', function() vim.cmd('LspRestart') end, '[R]estart')
+          map('<leader>ls', function() vim.cmd('LspStart') end, '[S]tart')
+          map('<leader>lt', function() vim.cmd('LspStop') end, 's[T]op')
+          map('<leader>li', function() vim.cmd('LspInfo') end, '[I]nfo')
+          map('<leader>ll', function() vim.cmd('LspInfo') end, '[L]og')
+
           -- Highlight symbol under cursor
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
