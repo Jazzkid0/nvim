@@ -57,7 +57,8 @@ return {
             vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
-          --  To jump back, press <C-t>.
+          --  To jump back, press <C-t>. This uses the tag stack, not the location list.
+          map('gp', function() vim.api.nvim_echo({{"use <C-t> instead!", "WarningMsg"}}, true, {}) vim.cmd('pop') end, '[G]oto [P]revious')
           map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
           map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
           map('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
