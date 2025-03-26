@@ -11,4 +11,8 @@ return {
   require 'custom.plugins.statusline',
 
   require 'custom.plugins.noice',
+
+  require 'custom.plugins.avante',
+
+  require 'custom.plugins.copilot',
 }
