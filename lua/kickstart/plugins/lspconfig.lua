@@ -43,9 +43,11 @@ return {
             },
           },
         },
-        rust_analyzer = {},
+        clangd = {},
+        -- rust_analyzer = {},
         gleam = {},
         marksman = {},
+        nixd = {},
       }
     },
 

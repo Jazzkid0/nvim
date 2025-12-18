@@ -12,7 +12,11 @@ return {
 
   require 'custom.plugins.noice',
 
+  require 'custom.plugins.none',
+
   require 'custom.plugins.avante',
 
   require 'custom.plugins.copilot',
+
+  require 'custom.plugins.rustaceanvim',
 }

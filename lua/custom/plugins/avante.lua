@@ -5,9 +5,13 @@ return {
   version = false,
   opts = {
     provider = "copilot",
+    providers = {
+      copilot = {
+        model = "gpt-4.1",
+      },
+    },
     auto_suggestions_provider = "copilot",
-    copilot = { model = "claude-3.5-sonnet" },
-    hints = { enabled = false },
+    hints = { enabled = true },
     file_selector = {
       provider = "fzf",
       provider_opts = {},
