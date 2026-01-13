@@ -25,14 +25,7 @@ return {
     },
 
     opts = {
-      --  Add any additional override configuration in the following tables. Available keys are:
-      --  - cmd (table): Override the default command used to start the server
-      --  - filetypes (table): Override the default list of associated filetypes for the server
-      --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
-      --  - settings (table): Override the default settings passed when initializing the server.
-      --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       servers = {
-        -- remember to actually install any servers for nvim to communicate with!
         lua_ls = {
           settings = {
             Lua = {
@@ -44,7 +37,6 @@ return {
           },
         },
         clangd = {},
-        -- rust_analyzer = {},
         gleam = {},
         marksman = {},
         nixd = {},
@@ -52,6 +44,8 @@ return {
     },
 
     config = function(_, opts)
+      local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = true })
+      local detach_augroup = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true })
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
@@ -82,7 +76,6 @@ return {
           -- Highlight symbol under cursor
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
-            local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
             vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
               buffer = event.buf,
               group = highlight_augroup,
@@ -96,7 +89,7 @@ return {
             })
 
             vim.api.nvim_create_autocmd('LspDetach', {
-              group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
+              group = detach_augroup,
               callback = function(event2)
                 vim.lsp.buf.clear_references()
                 vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
@@ -112,8 +105,6 @@ return {
           end
         end,
       })
-
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
 
       local lspconfig = require('lspconfig')
       for server, config in pairs(opts.servers) do
