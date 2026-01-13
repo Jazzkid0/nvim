@@ -40,6 +40,7 @@ return {
         gleam = {},
         marksman = {},
         nixd = {},
+        ts_ls = {},
       }
     },
 
