@@ -66,6 +66,7 @@ return {
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
           map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
           map('K', vim.lsp.buf.hover, 'Hover Documentation')
+          map('H', vim.lsp.buf.signature_help, 'Signature Help')
 
           -- LSP control binds
           map('<leader>lr', function() vim.cmd('LspRestart') end, '[R]estart')
