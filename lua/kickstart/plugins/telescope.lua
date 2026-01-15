@@ -57,6 +57,14 @@ return {
       vim.keymap.set('n', '<leader>pr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>p.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader>pb', builtin.buffers, { desc = '[S]earch [B]uffers' })
+      vim.keymap.set('n', '<leader>pl', builtin.loclist, { desc = '[S]earch [L]oclist' })
+      vim.keymap.set('n', '<leader>pq', builtin.quickfix, { desc = '[S]earch [Q]uickfix' })
+      vim.keymap.set('n', '<leader>p-', builtin.quickfixhistory, { desc = '[S]earch [-]quickfix history' })
+      vim.keymap.set('n', '<leader>pp', builtin.registers, { desc = '[S]earch [P]registers' })
+      vim.keymap.set('n', '<leader>pj', builtin.jumplist, { desc = '[S]earch [J]umplist' })
+      vim.keymap.set('n', '<leader>pt', builtin.tagstack, { desc = '[S]earch [T]agstack' })
+      vim.keymap.set('n', '<leader>pm', builtin.marks, { desc = '[S]earch [M]arks' })
 
       vim.keymap.set('n', '<leader>/', function()
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
@@ -71,7 +79,7 @@ return {
           grep_open_files = true,
           prompt_title = 'Live Grep in Open Files',
         }
-      end, { desc = '[S]earch [/] in Open Files' })
+      end, { desc = '[S]earch [/] within Open Files' })
 
       -- Shortcut for searching your Neovim configuration files
       vim.keymap.set('n', '<leader>pn', function()

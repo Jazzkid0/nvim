@@ -44,8 +44,8 @@ return {
         :find()
     end
 
-    vim.keymap.set('n', '<leader>ph', function()
+    vim.keymap.set('n', '<leader>px', function()
       toggle_telescope(harpoon:list())
-    end, { desc = '[S]earch [H]arpoon buffers' })
+    end, { desc = '[S]earch [X]harpoon buffers' })
   end,
 }
