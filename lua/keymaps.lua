@@ -11,8 +11,7 @@ map('n', '<leader>ff', vim.cmd.Ex, { desc = 'Open netrw file explorer' })
 
 -- Diagnostic keymaps
 map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
-map('n', '<leader>dl', vim.diagnostic.open_float, { desc = 'Show [D]iagnostics [L]ist' })
-map('n', '<leader>ql', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix [L]ist' })
+map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix List' })
 -- Diag jumps
 local function diag_jump(user_opts)
   return function()
