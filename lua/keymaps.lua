@@ -16,9 +16,9 @@ map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]ui
 local function diag_jump(user_opts)
   return function()
     vim.diagnostic.jump(vim.tbl_extend("force", {
-      reveal = true,
       on_jump = function()
-        vim.cmd("normal! zz")
+        vim.schedule(vim.cmd("normal! zz"))
+        vim.diagnostic.open_float()
       end,
     }, user_opts or {}))
   end
