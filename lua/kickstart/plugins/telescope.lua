@@ -66,6 +66,8 @@ return {
       vim.keymap.set('n', '<leader>pt', builtin.tagstack, { desc = '[S]earch [T]agstack' })
       vim.keymap.set('n', '<leader>pm', builtin.marks, { desc = '[S]earch [M]arks' })
 
+      vim.keymap.set('n', '<leader>p?', function() vim.cmd('Telescope noice') end, { desc = '[S]earch [?]nvim output messages' })
+
       vim.keymap.set('n', '<leader>/', function()
         builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
           winblend = 10,
