@@ -1,48 +1,48 @@
 require('lazy').setup({
-  require 'kickstart.plugins.gitsigns',
+  require 'plugins.gitsigns',
 
-  require 'kickstart.plugins.which-key',
+  require 'plugins.which-key',
 
-  require 'kickstart.plugins.telescope',
+  require 'plugins.telescope',
 
-  require 'kickstart.plugins.lspconfig',
+  require 'plugins.lspconfig',
 
-  require 'kickstart.plugins.cmp',
+  require 'plugins.cmp',
 
-  require 'kickstart.plugins.tokyonight',
+  require 'plugins.tokyonight',
 
-  require 'kickstart.plugins.todo-comments',
+  require 'plugins.todo-comments',
 
-  require 'kickstart.plugins.mini',
+  require 'plugins.mini',
 
-  require 'kickstart.plugins.treesitter',
+  require 'plugins.treesitter',
 
-  require 'kickstart.plugins.indent_line',
+  require 'plugins.indent_line',
 
-  require 'kickstart.plugins.neo-tree',
+  require 'plugins.neo-tree',
 
-  -- require 'kickstart.plugins.conform',
-  -- require 'kickstart.plugins.debug',
-  -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
+  -- require 'plugins.conform',
+  -- require 'plugins.debug',
+  -- require 'plugins.lint',
+  -- require 'plugins.autopairs',
 
-  require 'custom.plugins.harpoon',
+  require 'plugins.harpoon',
 
-  require 'custom.plugins.fugitive',
+  require 'plugins.fugitive',
 
-  require 'custom.plugins.undotree',
+  require 'plugins.undotree',
 
-  require 'custom.plugins.statusline',
+  require 'plugins.statusline',
 
-  require 'custom.plugins.noice',
+  require 'plugins.noice',
 
-  require 'custom.plugins.none',
+  require 'plugins.none',
 
-  require 'custom.plugins.avante',
+  require 'plugins.avante',
 
-  require 'custom.plugins.copilot',
+  require 'plugins.copilot',
 
-  require 'custom.plugins.rustaceanvim',
+  require 'plugins.rustaceanvim',
 
 }, {
   ui = {
