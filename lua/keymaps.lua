@@ -58,6 +58,16 @@ map('n', '<C-u>', '<C-u>zz')
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 
+-- Zen mode aka word wrapping
+map('n', '<leader>zz', function()
+  vim.opt_local.wrap = true
+  vim.opt_local.linebreak = true
+end, { desc = "enable zen mode" })
+map('n', '<leader>zx', function()
+  vim.opt_local.wrap = false
+  vim.opt_local.linebreak = false
+end, { desc = "disable zen mode" })
+
 -- Find and replace with word under cursor
 map('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>', { desc = 'Find and replace word' })
 
