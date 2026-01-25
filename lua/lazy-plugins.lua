@@ -29,7 +29,23 @@ require('lazy').setup({
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
 
-  { import = 'custom.plugins' },
+  require 'custom.plugins.harpoon',
+
+  require 'custom.plugins.fugitive',
+
+  require 'custom.plugins.undotree',
+
+  require 'custom.plugins.statusline',
+
+  require 'custom.plugins.noice',
+
+  require 'custom.plugins.none',
+
+  require 'custom.plugins.avante',
+
+  require 'custom.plugins.copilot',
+
+  require 'custom.plugins.rustaceanvim',
 
 }, {
   ui = {
