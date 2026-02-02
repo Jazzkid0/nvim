@@ -38,9 +38,9 @@ require('lazy').setup({
 
   require 'plugins.none',
 
-  require 'plugins.avante',
+  -- require 'plugins.avante',
 
-  require 'plugins.copilot',
+  -- require 'plugins.copilot',
 
   require 'plugins.rustaceanvim',
 
