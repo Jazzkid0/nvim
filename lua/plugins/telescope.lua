@@ -24,15 +24,34 @@ return {
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
-      -- The easiest way to use Telescope, is to start by doing something like:
-      --  :Telescope help_tags
-      --
-      -- Two important keymaps to use while in Telescope are:
-      --  - Insert mode: <c-/>
-      --  - Normal mode: ?
-      --
-      -- [[ Configure Telescope ]]
-      -- See `:help telescope` and `:help telescope.setup()`
+      -- FIX: Remove this shim if/when it's not needed (v0.12?)
+      local ok, ts_parsers = pcall(require, 'nvim-treesitter.parsers')
+      if ok then
+        if not ts_parsers.ft_to_lang then
+          ts_parsers.ft_to_lang = function(ft)
+            return vim.treesitter.language.get_lang(ft) or ft
+          end
+        end
+        if not ts_parsers.get_parser then
+          ts_parsers.get_parser = vim.treesitter.get_parser
+        end
+      end
+
+      local ok2, ts_configs = pcall(require, 'nvim-treesitter.configs')
+      if not ok2 then
+        package.preload['nvim-treesitter.configs'] = function()
+          local M = {}
+          function M.is_enabled(_, lang, bufnr)
+            local ok3, parser = pcall(vim.treesitter.get_parser, bufnr, lang)
+            return ok3 and parser ~= nil
+          end
+          function M.get_module()
+            return { additional_vim_regex_highlighting = false }
+          end
+          return M
+        end
+      end
+
       require('telescope').setup {
         extensions = {
           ['ui-select'] = {
