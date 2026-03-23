@@ -38,7 +38,15 @@ return {
         },
         clangd = {},
         gleam = {},
-        marksman = {},
+        markdown_oxide = {
+          capabilities = {
+            workspace = {
+              didChangeWatchedFiles = {
+                dynamicRegistration = true,
+              },
+            },
+          },
+        },
         nixd = {},
         ts_ls = {},
       }
