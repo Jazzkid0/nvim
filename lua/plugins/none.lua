@@ -47,7 +47,7 @@ return {
             {
               title = "Create note: " .. filename,
               action = function()
-                if vim.loop.fs_stat(path) then
+                if vim.uv.fs_stat(path) then
                   vim.notify("File already exists: " .. path, vim.log.levels.INFO)
                   vim.cmd.edit(path)
                   return

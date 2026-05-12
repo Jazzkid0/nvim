@@ -24,7 +24,7 @@ return {
       { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
     },
     config = function()
-      -- FIX: Remove this shim if/when it's not needed (v0.12?)
+      -- NOTE: Shim for nvim-treesitter API compatibility. Remove when all plugins no longer need it.
       local ok, ts_parsers = pcall(require, 'nvim-treesitter.parsers')
       if ok then
         if not ts_parsers.ft_to_lang then

@@ -1,6 +1,3 @@
-return {
-  'mbbill/undotree',
-  config = function()
-    vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle, { desc = 'Toggle undotree' })
-  end,
-}
+-- Replaced by built-in `:Undotree` (Neovim 0.12+).
+-- Keymap moved to lua/keymaps.lua.
+-- Safe to delete this file.

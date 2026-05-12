@@ -3,6 +3,9 @@ vim.g.maplocalleader = ' '
 
 vim.g.have_nerd_font = true
 
+-- Load built-in optional packages (0.12+)
+vim.cmd.packadd 'nvim.undotree'
+
 -- # Vanilla nvim configs
 -- [[ Setting options ]]
 require 'options'
@@ -12,7 +15,6 @@ require 'keymaps'
 
 -- [[ Autocommands ]]
 require 'autocmds'
-
 
 -- # Plugins
 -- [[ Install `lazy.nvim` plugin manager ]]

@@ -30,8 +30,6 @@ require('lazy').setup({
 
   require 'plugins.fugitive',
 
-  require 'plugins.undotree',
-
   require 'plugins.statusline',
 
   require 'plugins.noice',

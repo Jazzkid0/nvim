@@ -12,24 +12,13 @@ map('n', '<leader>ff', vim.cmd.Ex, { desc = 'Open netrw file explorer' })
 -- Diagnostic keymaps
 map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix List' })
--- Diag jumps
-local function diag_jump(user_opts)
-  return function()
-    vim.diagnostic.jump(vim.tbl_extend("force", {
-      on_jump = function()
-        vim.schedule(vim.cmd("normal! zz"))
-        vim.diagnostic.open_float()
-      end,
-    }, user_opts or {}))
-  end
-end
-
-map('n', '[d' , diag_jump({ count = -1 }), { desc = 'Previous Diagnostic'} )
-map('n', ']d' , diag_jump({ count = 1 }), { desc = 'Next Diagnostic'} )
-map('n', '[e' , diag_jump({ count = -1, severity = vim.diagnostic.severity.ERROR, }), { desc = 'Previous Error'} )
-map('n', ']e' , diag_jump({ count = 1, severity = vim.diagnostic.severity.ERROR, }), { desc = 'Next Error'} )
-map('n', '[w' , diag_jump({ count = -1, severity = vim.diagnostic.severity.WARN, }), { desc = 'Previous Warning'} )
-map('n', ']w' , diag_jump({ count = 1, severity = vim.diagnostic.severity.WARN, }), { desc = 'Next Warning'} )
+-- Diag jumps (on_jump callback defined in vim.diagnostic.config)
+map('n', '[d', function() vim.diagnostic.jump { count = -1 } end, { desc = 'Previous Diagnostic' })
+map('n', ']d', function() vim.diagnostic.jump { count = 1 } end, { desc = 'Next Diagnostic' })
+map('n', '[e', function() vim.diagnostic.jump { count = -1, severity = vim.diagnostic.severity.ERROR } end, { desc = 'Previous Error' })
+map('n', ']e', function() vim.diagnostic.jump { count = 1, severity = vim.diagnostic.severity.ERROR } end, { desc = 'Next Error' })
+map('n', '[w', function() vim.diagnostic.jump { count = -1, severity = vim.diagnostic.severity.WARN } end, { desc = 'Previous Warning' })
+map('n', ']w', function() vim.diagnostic.jump { count = 1, severity = vim.diagnostic.severity.WARN } end, { desc = 'Next Warning' })
 
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
@@ -71,5 +60,8 @@ end, { desc = "disable zen mode" })
 
 -- Find and replace with word under cursor
 map('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>', { desc = 'Find and replace word' })
+
+-- Built-in undotree (since 0.12)
+map('n', '<leader>u', require('undotree').open, { desc = 'Toggle undotree' })
 
 -- vim: ts=2 sts=2 sw=2 et

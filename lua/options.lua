@@ -11,9 +11,9 @@ vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
 
 -- Disable Right mouse to avoid accidental pastes
-vim.keymap.set('n', '<RightMouse>', '<Nop>', { noremap = true, silent = true })
-vim.keymap.set('v', '<RightMouse>', '<Nop>', { noremap = true, silent = true })
-vim.keymap.set('i', '<RightMouse>', '<Nop>', { noremap = true, silent = true })
+vim.keymap.set('n', '<RightMouse>', '<Nop>', { silent = true })
+vim.keymap.set('v', '<RightMouse>', '<Nop>', { silent = true })
+vim.keymap.set('i', '<RightMouse>', '<Nop>', { silent = true })
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
@@ -38,6 +38,17 @@ vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
 vim.opt.signcolumn = 'yes'
+
+-- Enable virtual text diagnostics (disabled by default since 0.11)
+vim.diagnostic.config {
+  virtual_text = true,
+  jump = {
+    on_jump = function()
+      vim.schedule(vim.cmd('normal! zz'))
+      vim.diagnostic.open_float()
+    end,
+  },
+}
 
 -- Decrease update time
 vim.opt.updatetime = 50
