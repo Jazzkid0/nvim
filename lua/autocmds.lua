@@ -25,4 +25,28 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- # vim.pack plugin hooks
+-- These fire after install/update/delete events via vim.pack
+vim.api.nvim_create_autocmd('PackChanged', { callback = function(ev)
+  local name, kind = ev.data.spec.name, ev.data.kind
+  local is_change = kind == 'install' or kind == 'update'
+
+  -- Tree-sitter: update parsers after install/update
+  if name == 'nvim-treesitter' and is_change then
+    if not ev.data.active then
+      vim.cmd.packadd('nvim-treesitter')
+    end
+    vim.cmd('TSUpdate')
+  end
+
+  -- telescope-fzf-native: build native module after install/update
+  if name == 'telescope-fzf-native.nvim' and is_change then
+    if not ev.data.active then
+      vim.cmd.packadd('telescope-fzf-native.nvim')
+    end
+    local dir = vim.fn.stdpath('data') .. '/site/pack/core/opt/telescope-fzf-native.nvim'
+    vim.fn.system({ 'make', '-C', dir })
+  end
+end })
+
 -- vim: ts=2 sts=2 sw=2 et

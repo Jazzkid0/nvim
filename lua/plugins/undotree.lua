@@ -1,3 +1,0 @@
--- Replaced by built-in `:Undotree` (Neovim 0.12+).
--- Keymap moved to lua/keymaps.lua.
--- Safe to delete this file.

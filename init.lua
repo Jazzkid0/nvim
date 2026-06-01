@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -17,10 +19,7 @@ require 'keymaps'
 require 'autocmds'
 
 -- # Plugins
--- [[ Install `lazy.nvim` plugin manager ]]
-require 'lazy-bootstrap'
-
--- [[ Configure and install plugins ]]
-require 'lazy-plugins'
+-- Plugin files in plugin/ are auto-sourced by Neovim in alphabetical order.
+-- See plugin/ directory for vim.pack.add() calls and plugin configuration.
 
 -- vim: ts=2 sts=2 sw=2 et
