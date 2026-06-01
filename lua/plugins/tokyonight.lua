@@ -12,7 +12,7 @@ return { -- You can easily change to a different colorscheme.
       end,
 
       on_highlights = function(hl)
-        hl.CursorLine = { fg = nil, bg = "#111113" }
+        hl.CursorLine = { fg = nil, bg = "#1c1c28" }
       end,
     })
 
