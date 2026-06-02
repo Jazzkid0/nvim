@@ -1,11 +1,9 @@
--- Collection of small independent plugins/modules
-vim.pack.add({ 'https://github.com/echasnovski/mini.nvim' })
-
--- Better Around/Inside textobjects
+-- Text objects via snacks.nvim scope
 -- Examples:
---  - va)  - [V]isually select [A]round [)]paren
---  - yinq - [Y]ank [I]nside [N]ext [Q]uote
---  - ci'  - [C]hange [I]nside [']quote
-require('mini.ai').setup { n_lines = 500 }
+--  - ii  - select [I]nner [I]ndent scope
+--  - ai  - select [A]round [I]ndent scope (full scope)
+--  - [i  - jump to top edge of scope
+--  - ]i  - jump to bottom edge of scope
+-- Configured in plugin/06-snacks.lua
 
 -- vim: ts=2 sts=2 sw=2 et

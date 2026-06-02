@@ -20,36 +20,4 @@ vim.keymap.set('n', '<M-j>', function() harpoon:list():select(8) end)
 vim.keymap.set('n', '<M-,>', function() harpoon:list():prev() end)
 vim.keymap.set('n', '<M-.>', function() harpoon:list():next() end)
 
--- Telescope integration (deferred until telescope loads on VimEnter)
-vim.api.nvim_create_autocmd('VimEnter', {
-  once = true,
-  callback = function()
-    local ok, _ = pcall(require, 'telescope')
-    if not ok then return end
-
-    local conf = require('telescope.config').values
-    local function toggle_telescope(harpoon_files)
-      local file_paths = {}
-      for _, item in ipairs(harpoon_files.items) do
-        table.insert(file_paths, item.value)
-      end
-
-      require('telescope.pickers')
-        .new({}, {
-          prompt_title = 'Harpoon',
-          finder = require('telescope.finders').new_table {
-            results = file_paths,
-          },
-          previewer = conf.file_previewer {},
-          sorter = conf.generic_sorter {},
-        })
-        :find()
-    end
-
-    vim.keymap.set('n', '<leader>px', function()
-      toggle_telescope(harpoon:list())
-    end, { desc = '[S]earch [X]harpoon buffers' })
-  end,
-})
-
 -- vim: ts=2 sts=2 sw=2 et
