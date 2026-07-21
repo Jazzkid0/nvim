@@ -22,10 +22,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
       vim.keymap.set('n', keys, func, { buf = event.buf, desc = 'LSP: ' .. desc })
     end
 
-    map('gp', function()
-      vim.api.nvim_echo({ { "use <C-t> instead!", "WarningMsg" } }, true, {})
-      vim.cmd('pop')
-    end, '[G]oto [P]revious')
     map('gd', function() Snacks.picker.lsp_definitions() end, '[G]oto [D]efinition')
     map('gr', function() Snacks.picker.lsp_references() end, '[G]oto [R]eferences')
     map('gI', function() Snacks.picker.lsp_implementations() end, '[G]oto [I]mplementation')
@@ -36,14 +32,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
     map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
     map('K', vim.lsp.buf.hover, 'Hover Documentation')
-    map('H', vim.lsp.buf.signature_help, 'Signature Help')
+    map('gs', vim.lsp.buf.signature_help, 'Signature Help')
 
     -- LSP control
     map('<leader>lr', function() vim.cmd('LspRestart') end, '[R]estart')
     map('<leader>ls', function() vim.cmd('LspStart') end, '[S]tart')
     map('<leader>lt', function() vim.cmd('LspStop') end, 's[T]op')
     map('<leader>li', function() vim.cmd('LspInfo') end, '[I]nfo')
-    map('<leader>ll', function() vim.cmd('LspInfo') end, '[L]og')
+    map('<leader>ll', function() vim.cmd('edit ' .. vim.lsp.get_log_path()) end, '[L]og')
 
     -- Highlight symbol under cursor
     local client = vim.lsp.get_client_by_id(event.data.client_id)

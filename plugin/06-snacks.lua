@@ -34,7 +34,12 @@ require('snacks').setup({
     enabled = true,
   },
 
-  --- Scope: text objects replacing mini.ai
+  --- Scope: text objects
+  -- Text objects via snacks.nvim scope:
+  --  - ii  - select [I]nner [I]ndent scope
+  --  - ai  - select [A]round [I]ndent scope (full scope)
+  --  - [i  - jump to top edge of scope
+  --  - ]i  - jump to bottom edge of scope
   scope = {
     enabled = true,
   },

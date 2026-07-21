@@ -10,8 +10,6 @@ vim.api.nvim_create_autocmd('VimEnter', {
     require('which-key').add {
       { '<leader>c', group = '[C]ode' },
       { '<leader>d', group = '[D]ocument' },
-      { '<leader>f', group = '[F]ile' },
-      { '<leader>g', group = '[G]it' },
       { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
       { '<leader>l', group = '[L]SP' },
       { '<leader>p', group = '[P]earch' },

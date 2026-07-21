@@ -44,7 +44,7 @@ vim.diagnostic.config {
   virtual_text = true,
   jump = {
     on_jump = function()
-      vim.schedule(vim.cmd('normal! zz'))
+      vim.schedule(function() vim.cmd('normal! zz') end)
       vim.diagnostic.open_float()
     end,
   },

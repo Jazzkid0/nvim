@@ -3,10 +3,6 @@
 
 local map = vim.keymap.set
 
--- Clear highlights on search when pressing <Esc> in normal mode
---  See `:help hlsearch`
-map('n', '<Esc>', vim.cmd.nohlsearch)
-
 -- Diagnostic keymaps
 map('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 map('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix List' })
@@ -32,8 +28,8 @@ map('n', '<C-Up>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 map('n', '<leader>o', '<C-w><C-o>', { desc = '[O]nly show this window' })
 
 -- Navigate wrapped text with alt
-map('n', '<M-j>', 'gj')
-map('n', '<M-k>', 'gk')
+map('n', '<M-Down>', 'gj')
+map('n', '<M-Up>', 'gk')
 
 -- Move multiple highlighted lines with capitals
 map('v', 'J', ":m '>+1<CR>gv=gv")
@@ -62,7 +58,7 @@ vim.keymap.set('n', '<leader><leader>', function() Snacks.picker.buffers() end, 
 vim.keymap.set('n', '<leader>pb', function() Snacks.picker.buffers() end, { desc = '[S]earch [B]uffers' })
 vim.keymap.set('n', '<leader>pl', function() Snacks.picker.loclist() end, { desc = '[S]earch [L]oclist' })
 vim.keymap.set('n', '<leader>pq', function() Snacks.picker.qflist() end, { desc = '[S]earch [Q]uickfix' })
-vim.keymap.set('n', '<leader>pp', function() Snacks.picker.registers() end, { desc = '[S]earch [P]registers' })
+vim.keymap.set('n', '<leader>pp', function() Snacks.picker.registers() end, { desc = '[S]earch [P] Registers' })
 vim.keymap.set('n', '<leader>pj', function() Snacks.picker.jumps() end, { desc = '[S]earch [J]umplist' })
 vim.keymap.set('n', '<leader>pm', function() Snacks.picker.marks() end, { desc = '[S]earch [M]arks' })
 vim.keymap.set('n', '<leader>p?', function() Snacks.picker.notifications() end, { desc = '[S]earch [?]notifications' })
@@ -82,7 +78,7 @@ vim.keymap.set('n', '<leader>zz', function() Snacks.zen() end, { desc = 'Toggle 
 vim.keymap.set('n', '<leader>zZ', function() Snacks.zen.zoom() end, { desc = 'Toggle Zoom' })
 
 -- Words: LSP reference navigation
-vim.keymap.set({ 'n', 't' }, ']]', function() Snacks.words.jump(vim.v.count1) end, { desc = 'Next Reference' })
-vim.keymap.set({ 'n', 't' }, '[[', function() Snacks.words.jump(-vim.v.count1) end, { desc = 'Prev Reference' })
+vim.keymap.set('n', ']]', function() Snacks.words.jump(vim.v.count1) end, { desc = 'Next Reference' })
+vim.keymap.set('n', '[[', function() Snacks.words.jump(-vim.v.count1) end, { desc = 'Prev Reference' })
 
 -- vim: ts=2 sts=2 sw=2 et
