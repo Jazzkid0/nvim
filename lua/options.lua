@@ -7,7 +7,6 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
--- TODO: Evaluate whether this is actually worth it vs accidentally entering select mode when clicking to focus the window (on windows)
 vim.opt.mouse = 'a'
 
 -- Disable Right mouse to avoid accidental pastes
